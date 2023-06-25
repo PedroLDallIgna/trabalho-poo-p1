@@ -55,8 +55,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         taEndereco.setColumns(20);
         taEndereco.setRows(5);
         jScrollPane1.setViewportView(taEndereco);

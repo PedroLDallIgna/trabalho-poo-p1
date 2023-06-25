@@ -62,8 +62,6 @@ public class VisualizarFuncionario extends javax.swing.JFrame {
         lbRegistro = new javax.swing.JLabel();
         lbSalario = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel5.setText("Altura");
 
         jLabel6.setText("Telefone");
