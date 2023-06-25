@@ -4,6 +4,8 @@
  */
 package view;
 
+import javax.swing.*;
+import javax.swing.GroupLayout;
 import controller.FileHandler;
 import java.io.File;
 import java.io.IOException;
@@ -36,18 +38,18 @@ public class Home extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        menuRegister = new javax.swing.JMenu();
         mItemCadastroFuncionario = new javax.swing.JMenuItem();
         mItemCadastroEstagiario = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        menuView = new javax.swing.JMenu();
         mItemVisualizarFuncionario = new javax.swing.JMenuItem();
         mItemVisualizarEstagiario = new javax.swing.JMenuItem();
         menuDelete = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        mItemDelete = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("Cadastro");
+        menuRegister.setText("Cadastro");
 
         mItemCadastroFuncionario.setText("Funcionario");
         mItemCadastroFuncionario.addActionListener(new java.awt.event.ActionListener() {
@@ -55,7 +57,7 @@ public class Home extends javax.swing.JFrame {
                 mItemCadastroFuncionarioActionPerformed(evt);
             }
         });
-        jMenu1.add(mItemCadastroFuncionario);
+        menuRegister.add(mItemCadastroFuncionario);
 
         mItemCadastroEstagiario.setText("Estagiario");
         mItemCadastroEstagiario.addActionListener(new java.awt.event.ActionListener() {
@@ -63,11 +65,11 @@ public class Home extends javax.swing.JFrame {
                 mItemCadastroEstagiarioActionPerformed(evt);
             }
         });
-        jMenu1.add(mItemCadastroEstagiario);
+        menuRegister.add(mItemCadastroEstagiario);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(menuRegister);
 
-        jMenu2.setText("Visualizar");
+        menuView.setText("Visualizar");
 
         mItemVisualizarFuncionario.setText("Funcionario");
         mItemVisualizarFuncionario.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +77,7 @@ public class Home extends javax.swing.JFrame {
                 mItemVisualizarFuncionarioActionPerformed(evt);
             }
         });
-        jMenu2.add(mItemVisualizarFuncionario);
+        menuView.add(mItemVisualizarFuncionario);
 
         mItemVisualizarEstagiario.setText("Estagiario");
         mItemVisualizarEstagiario.addActionListener(new java.awt.event.ActionListener() {
@@ -83,24 +85,19 @@ public class Home extends javax.swing.JFrame {
                 mItemVisualizarEstagiarioActionPerformed(evt);
             }
         });
-        jMenu2.add(mItemVisualizarEstagiario);
+        menuView.add(mItemVisualizarEstagiario);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(menuView);
 
         menuDelete.setText("Deletar");
-        menuDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuDeleteActionPerformed(evt);
-            }
-        });
 
-        jMenuItem1.setText("deletar");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mItemDelete.setText("Deletar");
+        mItemDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mItemDeleteActionPerformed(evt);
             }
         });
-        menuDelete.add(jMenuItem1);
+        menuDelete.add(mItemDelete);
 
         jMenuBar1.add(menuDelete);
 
@@ -182,22 +179,21 @@ public class Home extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_mItemVisualizarEstagiarioActionPerformed
 
-    private void menuDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDeleteActionPerformed
-        
-    }//GEN-LAST:event_menuDeleteActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void mItemDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mItemDeleteActionPerformed
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogType(0);
         fileChooser.setApproveButtonText("Deletar");
         fileChooser.setDialogTitle("Selecione o arquivo");
         
-        int opt = fileChooser.showOpenDialog(this);
+        int opt = fileChooser.showDialog(this, null);
         if (opt == JFileChooser.APPROVE_OPTION) {
-            File selectedFile = fileChooser.getSelectedFile();
-            selectedFile.delete();
+            int confirm = JOptionPane.showConfirmDialog(fileChooser, "Confirmar exclusão?");
+            if (confirm == JOptionPane.YES_OPTION) {
+                File selectedFile = fileChooser.getSelectedFile();
+                boolean operation = selectedFile.delete();
+            }
         }
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_mItemDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,14 +231,14 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem mItemCadastroEstagiario;
     private javax.swing.JMenuItem mItemCadastroFuncionario;
+    private javax.swing.JMenuItem mItemDelete;
     private javax.swing.JMenuItem mItemVisualizarEstagiario;
     private javax.swing.JMenuItem mItemVisualizarFuncionario;
     private javax.swing.JMenu menuDelete;
+    private javax.swing.JMenu menuRegister;
+    private javax.swing.JMenu menuView;
     // End of variables declaration//GEN-END:variables
 }

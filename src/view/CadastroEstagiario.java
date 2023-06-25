@@ -60,8 +60,6 @@ public class CadastroEstagiario extends javax.swing.JFrame {
         cbBolsa = new javax.swing.JCheckBox();
         ftxHoras = new javax.swing.JFormattedTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         taEndereco.setColumns(20);
         taEndereco.setRows(5);
         jScrollPane1.setViewportView(taEndereco);

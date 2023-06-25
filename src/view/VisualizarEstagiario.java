@@ -67,8 +67,6 @@ public class VisualizarEstagiario extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         lbBolsa = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel5.setText("Altura");
 
         jLabel6.setText("Telefone");
